@@ -8,7 +8,7 @@ The app allows users to browse products, search, sort by price or rating, and vi
 - [Features](#features)
 - [Installation](#installation)
 - [Deployed App](#deployed-app)
-- [App](#https://pcatalog.vercel.app/)
+- [`Product Catalog`](#https://pcatalog.vercel.app/)
 
 
 
