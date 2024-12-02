@@ -1,53 +1,90 @@
-<<<<<<< HEAD
 # pcatalog
+
+
+# Product Catalog App
+
+A product catalog application built with React, Redux, TypeScript, and Ant Design.
+The app allows users to browse products, search, sort by price or rating, and view them in a paginated format.
+
+## Table of Contents
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Installation](#installation)
+- [Running Locally](#running-locally)
+- [Login Credentials](#login-credentials)
+- [Deployed App](#deployed-app)
+
+## Technologies Used
+- React
+- Redux Toolkit
+- TypeScript
+- Ant Design
+- Tailwind CSS
+- Jest (for testing)
+
+## Features
+- Search functionality for filtering products by title.
+- Sorting by price (Low to High, High to Low) and rating (Low to High, High to Low).
+- Pagination for displaying a subset of products per page.
+- Dark and light mode toggle using Tailwind CSS.
+
+## Installation
+
+To get started with the app, clone the repository and install the required dependencies.
+
+### 1. Clone the repository:
+
+```bash
+git clone https://github.com/Ibrah-55/pcatalog.git
+cd pcatalog
+
+# Product Catalog App
+
+A product catalog application built with React, Redux, TypeScript, and Ant Design. The app allows users to browse products, search, sort by price or rating, and view them in a paginated format.
+
+## Table of Contents
+- [Technologies Used](#Technologies-used)
+- [Features](#Features)
+- [Installation](#Installation)
+- [Running Locally](#running-locally)
+- [Deployed App](#Deployed-App)
+
+##Technologie-used
+- React(Vite)
+- Redux Toolkit
+- TypeScript
+- Ant Design
+- Tailwind CSS
+- Jest (for testing)
+
+##Features
+- Search functionality for filtering products by title.
+- Sorting by price (Low to High, High to Low) and rating (Low to High, High to Low).
+- Pagination for displaying a subset of products per page.
+- Dark and light mode toggle using Tailwind CSS.
+
+##Installation
+
+To get started with the app, clone the repository and install the required dependencies.
+
+### 1. Clone the repository:
+
+```bash
+git clone https://github.com/Ibrah-55/pcatalog.git
+cd pcatalog
+2. Install the dependencies:
+npm install
+
+After installing the dependencies, start the development server:
+Vite Dev
+Open your browser and navigate to:
+http://localhost:5173
+You should see the app running locally.
+
 =======
-# React + TypeScript + Vite
+#Deployed-App
+The app is deployed on Vercel. Access the live version here:
+https://pcatalog.vercel.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
