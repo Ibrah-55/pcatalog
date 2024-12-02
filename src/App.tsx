@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Home from "./Components/Home";
-import { Switch } from "antd"; // Ant Design switch for toggling
-import "./App.css"; // Ensure your Tailwind CSS styles are imported
+import { Switch } from "antd";
+import "./App.css";
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Load dark mode preference from localStorage
   useEffect(() => {
     const savedMode = localStorage.getItem("darkMode");
     if (savedMode === "true") {
@@ -14,12 +13,10 @@ const App = () => {
     }
   }, []);
 
-  // Toggle dark mode
   const toggleDarkMode = () => {
     setIsDarkMode((prevMode) => !prevMode);
   };
 
-  // Apply dark mode class to the body
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add("dark");

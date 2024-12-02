@@ -1,15 +1,13 @@
 // src/slice/pSlice.ts
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchProducts } from "../api/products";
-import { Product } from "../types/Product"; // Import the Product type
+import { Product } from "../types/Product";
 
-// Define the type for the slice state
 interface ProductState {
   items: Product[];
   loading: boolean;
 }
 
-// Create async thunk for loading products
 export const loadProducts = createAsyncThunk<Product[]>(
   "products/load",
   fetchProducts,

@@ -6,7 +6,7 @@ import ProductCard from "../Components/PCard";
 import { Input, Select, Pagination, Spin } from "antd";
 import { setSearchTerm } from "../slice/sSlice";
 import { AppDispatch, RootState } from "../store";
-
+import { Product } from "../types/Product";
 const { Search } = Input;
 const { Option } = Select;
 
