@@ -34,7 +34,7 @@ const App = () => {
           Product Catalog
         </h1>
         <div>
-          <span className="mr-2 text-gray-700 dark:text-white">Dark Mode</span>
+          <span className="mr-2 text-gray-700 dark:text-white">{savedMode}</span>
           <Switch
             checked={isDarkMode}
             onChange={toggleDarkMode}
