@@ -4,12 +4,20 @@ import { loadProducts } from "../slice/pSlice";
 import ProductCard from "../Components/PCard";
 import { Input, Select, Pagination } from "antd";
 import { setSearchTerm } from "../slice/sSlice";
+import { AppDispatch } from "../store/index";
 
 const { Search } = Input;
 const { Option } = Select;
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  image: string;
+  rating: { rate: number };
+}
 
 const Home = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const products = useSelector((state: any) => state.products.items);
   const searchTerm = useSelector((state: any) => state.search.term);
 
@@ -19,7 +27,7 @@ const Home = () => {
 
   // Memoize the filtered and sorted product list
   const filteredProducts = useMemo(() => {
-    let filtered = products.filter((product: any) =>
+    let filtered = products.filter((product: Product) =>
       product.title.toLowerCase().includes(searchTerm.toLowerCase()),
     );
 
@@ -60,11 +68,12 @@ const Home = () => {
   };
 
   return (
-    <>
+    <div className=" dark:bg-gray-900 dark:text-white">
       <Search
         placeholder="Search products..."
         allowClear
         size="large"
+        enterButton="Search Product"
         onChange={handleSearch}
         className="mb-4"
       />
@@ -102,7 +111,7 @@ const Home = () => {
         onChange={handlePageChange}
         className="mt-4"
       />
-    </>
+    </div>
   );
 };
 
