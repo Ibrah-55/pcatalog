@@ -28,7 +28,7 @@ const App = () => {
   }, [isDarkMode]);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen ">
       <header className="flex justify-between items-center p-4 bg-white dark:bg-gray-800">
         <h1 className="text-xl font-semibold dark:text-white">
           Product Catalog

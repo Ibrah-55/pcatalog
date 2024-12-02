@@ -10,8 +10,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>
       {" "}
-      {/* Wrap App with Provider */}
-      <App />
+      <div>
+        <App />
+      </div>
     </Provider>
   </React.StrictMode>,
 );
