@@ -26,13 +26,13 @@ Pagination: Display a subset of products per page with customizable page size.
 Dark Mode: Toggle between dark and light modes using Tailwind CSS.
 
 ## Installation
-`git clone https://github.com/Ibrah-55/pcatalog.git`
-`cd pcatalog`
-2. Install the dependencies:
+1. `git clone https://github.com/Ibrah-55/pcatalog.git`
+2. `cd pcatalog`
+3. Install the dependencies:
 `npm install`
 
 After installing the dependencies, start the development server:
-`vite Dev`
+`vite dev`
 Open your browser and navigate to:
 `http://localhost:5173`
 You should see the app running locally.
