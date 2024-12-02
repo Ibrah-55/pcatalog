@@ -8,7 +8,7 @@ The app allows users to browse products, search, sort by price or rating, and vi
 - [Features](#features)
 - [Installation](#installation)
 - [Deployed App](#deployed-app)
-- [`Product Catalog`](https://pcatalog.vercel.app/)
+- [**Product Catalog**](https://pcatalog.vercel.app/)
 
 
 
@@ -41,4 +41,6 @@ You should see the app running locally.
 =======
 ## Deployed-App
 The app is deployed on Vercel. Access the live version here:
-`Product Catalog`
+## Deployed App
+The app is deployed on Vercel. Access the live version here:
+[**Product Catalog**](https://pcatalog.vercel.app/)
