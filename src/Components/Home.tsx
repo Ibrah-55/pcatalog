@@ -1,25 +1,20 @@
+// src/Components/Home.tsx
 import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadProducts } from "../slice/pSlice";
 import ProductCard from "../Components/PCard";
-import { Input, Select, Pagination } from "antd";
+import { Input, Select, Pagination, Spin } from "antd";
 import { setSearchTerm } from "../slice/sSlice";
-import { AppDispatch } from "../store/index";
+import { AppDispatch, RootState } from "../store";
 
 const { Search } = Input;
 const { Option } = Select;
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  image: string;
-  rating: { rate: number };
-}
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const products = useSelector((state: any) => state.products.items);
-  const searchTerm = useSelector((state: any) => state.search.term);
+  const products = useSelector((state: RootState) => state.products.items);
+  const searchTerm = useSelector((state: RootState) => state.search.term);
+  const loading = useSelector((state: RootState) => state.products.loading);
 
   const [sortOption, setSortOption] = useState("priceAsc");
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,7 +22,7 @@ const Home = () => {
 
   // Memoize the filtered and sorted product list
   const filteredProducts = useMemo(() => {
-    let filtered = products.filter((product: Product) =>
+    let filtered = products.filter((product) =>
       product.title.toLowerCase().includes(searchTerm.toLowerCase()),
     );
 
@@ -68,49 +63,58 @@ const Home = () => {
   };
 
   return (
-    <div className=" dark:bg-gray-900 dark:text-white">
-      <Search
-        placeholder="Search products..."
-        allowClear
-        size="large"
-        enterButton="Search Product"
-        onChange={handleSearch}
-        className="mb-4"
-      />
-
-      {/* Sorting Dropdown */}
-      <Select
-        defaultValue="priceAsc"
-        onChange={handleSortChange}
-        className="mb-4"
-      >
-        <Option value="priceAsc">Price: Low to High</Option>
-        <Option value="priceDesc">Price: High to Low</Option>
-        <Option value="ratingAsc">Rating: Low to High</Option>
-        <Option value="ratingDesc">Rating: High to Low</Option>
-      </Select>
-
-      {/* Display the filtered and sorted products */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-5">
-        {paginatedProducts.map((product: any) => (
-          <ProductCard
-            key={product.id}
-            name={product.title}
-            price={product.price}
-            image={product.image}
-            rating={product.rating.rate}
+    <div className="dark:bg-gray-900 dark:text-white">
+      {/* Loading Spinner */}
+      {loading ? (
+        <div className="flex justify-center items-center h-screen">
+          <Spin size="large" />
+        </div>
+      ) : (
+        <>
+          <Search
+            placeholder="Search products..."
+            allowClear
+            size="large"
+            enterButton="Search Product"
+            onChange={handleSearch}
+            className="mb-4"
           />
-        ))}
-      </div>
 
-      {/* Pagination */}
-      <Pagination
-        current={currentPage}
-        total={filteredProducts.length}
-        pageSize={itemsPerPage}
-        onChange={handlePageChange}
-        className="mt-4"
-      />
+          {/* Sorting Dropdown */}
+          <Select
+            defaultValue="priceAsc"
+            onChange={handleSortChange}
+            className="mb-4"
+          >
+            <Option value="priceAsc">Price: Low to High</Option>
+            <Option value="priceDesc">Price: High to Low</Option>
+            <Option value="ratingAsc">Rating: Low to High</Option>
+            <Option value="ratingDesc">Rating: High to Low</Option>
+          </Select>
+
+          {/* Display the filtered and sorted products */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-5">
+            {paginatedProducts.map((product: Product) => (
+              <ProductCard
+                key={product.id}
+                name={product.title}
+                price={product.price}
+                image={product.image}
+                rating={product.rating.rate}
+              />
+            ))}
+          </div>
+
+          {/* Pagination */}
+          <Pagination
+            current={currentPage}
+            total={filteredProducts.length}
+            pageSize={itemsPerPage}
+            onChange={handlePageChange}
+            className="mt-4"
+          />
+        </>
+      )}
     </div>
   );
 };
